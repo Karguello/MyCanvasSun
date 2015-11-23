@@ -1,0 +1,240 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+ <title>Here Comes the Sun</title>
+ <script>
+   window.onload = function(){
+     
+     //var imageObj = new Image();
+     var canvas = document.getElementById("paper"),
+     c = canvas.getContext("2d");
+     
+
+      //imageObj.onload = function() {
+      //  c.drawImage(imageObj, 1, 1);
+     // };
+     // imageObj.src = 'http://s18.postimg.org/enxdljrmx/here.png';
+      
+      
+
+
+      c.fillStyle = "white";
+      c.fillRect(0,0, canvas.width, canvas.height);
+
+      c.fillStyle = "yellow";
+      c.fillRect(12, 12, 300, 90);
+
+     
+    
+     
+    //Line
+      
+      c.beginPath();
+      c.moveTo(50,100);
+      c.lineTo(300,400);//move line postion on move to starting point to line to end point
+      c.stroke();
+      c.strokeStyle = '#e5f9ff';
+      c.lineWidth = 3;
+      c.stroke();
+
+     
+
+      //Mytext here comes the sun
+      c.fillStyle = "pink";
+      c.font = "250px Helventica";
+      c.fillText("Comes", 300, 200);
+
+      c.fillStyle = "white";
+      c.font = "180px Helventica";
+      c.fillText("here", 10, 100);
+    
+      c.fillStyle = "#ccffee";
+      c.font = "300px Helventica";
+      c.fillText("The", 0, 400);
+    
+      c.fillStyle = "gray";
+      c.font = "400px Arial Bold";
+      c.fillText("Sun.", 0, 700);
+      //(x,y locations)
+
+
+      c.beginPath();
+      //moveTo(200, 340);
+      c.arc(5500, 300, 50, 0, Math.PI * 2, false); //(x,y, radius of circle ,starting and ending, true false clockwise/counterclock)
+      c.fill();
+
+      
+      
+      //My Animation
+      var posX = 30,
+          posY = 100;
+      
+      setInterval(function(){
+ 
+        posX += 3;
+
+        if  (posX > 200){
+        	posY += 2;
+        }
+
+      	//c.fillStyle = "black";
+        //c.fillRect(0,0, canvas.width, canvas.height);
+
+        c.fillStyle = "rgba(0,0,0,0.0001)"; //color
+        c.fillRect(0, 0, canvas.width, canvas.height);
+
+        
+        c.fillStyle = "white";
+        c.beginPath();
+        c.arc(posX , posY, 5, 2, Math.PI * 2, false);
+        c.fill();
+
+        c.fillStyle = "#e5f9ff'";
+        c.beginPath();
+        c.arc(30 , posY, 5, 0, Math.PI * 2, true);
+        c.fill();
+
+        //adding a new circle/line/shapes into motion
+       
+       //circle
+        c.fillStyle = "white";
+        c.beginPath();
+        c.arc(posX , 200, 5, 0, Math.PI * 2, false);
+        c.fill();
+
+
+        c.fillStyle = "white";
+        c.beginPath();
+        c.arc(200 , posY, 5, 0, Math.PI * 2, false);
+        c.fill();
+
+
+         
+        c.fillStyle = "pink";
+        c.beginPath();
+        c.arc(300 , posY, 5, 0, Math.PI * 2, false);
+        c.fill();
+
+
+        c.fillStyle = "pink";
+        c.beginPath();
+        c.arc(posX , 400, 5, 0, Math.PI * 2, false);
+        c.fill();
+        
+        
+        c.fillStyle = "white";
+        c.beginPath();
+        c.arc(300 , posY, 5, 2, Math.PI * 2, true);
+        c.fill();
+
+      //arc
+
+      c.beginPath();
+      c.moveTo(posX, 200, 5, 2, Math.PI * 2, true);
+      c.quadraticCurveTo(450, 10, 5, 550);
+      c.lineWidth = 2;
+
+      // arc color
+      c.strokeStyle = 'white';
+      c.stroke();
+
+      c.beginPath();
+      c.moveTo(posX, posY, 3, 2, Math.PI * 2, false);
+      c.lineTo(300,400);//move line postion on move to starting point to line to end point
+      c.strokeStyle = '#e5f9ff';
+      c.lineWidth = 1;
+      c.stroke();
+
+      c.beginPath();
+      c.moveTo(100, posY, 5, 2, Math.PI * 2, true);
+      c.lineTo(300,400);//move line postion on move to starting point to line to end point
+      c.strokeStyle = '#e5f9ff';
+      c.lineWidth = 1;
+      c.stroke();
+        
+       c.beginPath();
+      c.moveTo(50, posY, 5, 2, Math.PI * 2, true);
+      c.lineTo(300,400);//move line postion on move to starting point to line to end point
+      c.strokeStyle = '#e5f9ff';
+      c.lineWidth = 2;
+      c.stroke();  
+      
+      // rectangle
+      c.beginPath();
+      c.rect(200, posY, 5, 2, Math.PI * 2, true);
+      c.fillStyle = 'yellow';
+      c.fill();
+      c.lineWidth = 7;
+      c.strokeStyle = '#e5f9ff';
+      c.stroke();
+     // semicircle
+      c.beginPath();
+      c.arc(posX, posY, 5, 2, Math.PI * 2, true);
+      c.closePath();
+      c.lineWidth = 5;
+      c.fillStyle = '#e5f9ff';
+      c.fill();
+      c.strokeStyle = '#e5f9ff';
+      c.stroke();
+     //Bezier Curve
+
+      c.beginPath();
+      c.moveTo(128, 130);
+      c.bezierCurveTo(300 , posY, 5, 0, Math.PI * 2, false);
+      c.lineWidth = 10;
+
+      // line color
+      c.strokeStyle = '#ffffb3';
+      c.stroke();
+
+       c.beginPath();
+      c.moveTo(128, 130);
+      c.bezierCurveTo(300 , posY, 5, 0, Math.PI * 2, false);
+      c.lineWidth = 10;
+
+      // line color
+      c.strokeStyle = '#ffff4d';
+      c.stroke();
+      
+      
+  
+      }, 55);
+
+     
+   };
+ </script>
+ <style>
+ </style>
+ </head>
+ <body>
+ 	<audio controls autoplay>
+ 		<source src="Here Comes The Sun.mp3" type=" audio/mpeg"/>
+ 		if you can see this update browser
+
+ 	</audio>
+ 	
+ 	<canvas id="paper" width="1000" height="700">
+     Go get Chrome
+
+
+  <p>Image to use:</p>
+<img id="scream" width="220" height="277" src="img.png" alt="The Scream">
+
+<p>Canvas:</p>
+<canvas id="myCanvas" width="240" height="297" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+
+<script>
+window.onload = function() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("scream");
+    ctx.drawImage(img, 10, 10);
+}
+ </canvas>
+ </body>
+ </html>	
+
+
